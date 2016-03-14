@@ -1,5 +1,6 @@
 //PINK SLUMBER BY SANJANA BHATIA
 
+
 var silk;
 var uploadButton;
 var uploadedImage;
