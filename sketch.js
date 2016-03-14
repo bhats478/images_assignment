@@ -1,45 +1,51 @@
-//================================
-//	view your project using anvil at:
-//	http://images.dev
-//
-// or after you upload it to github at:
-//	http://yourusername.github.io/images/
-//================================
+//PINK SLUMBER BY SANJANA BHATIA
 
-//STEP 1: Declare global variables for your images and upload button
+var silk;
+var uploadButton;
+var uploadedImage;
+var sleepinglady;
 
 function preload(){
-	//STEP 2:
-	// Load your image with loadImage("path/to/image.jpg")
-	//and save it to your global variable:
-
-
+	silk = loadImage("file:///Users/sanjanabhatia/Dropbox/spring%202016/creative%20computing/images_assignment/images/silk.jpg");
+	sleepinglady = loadImage("file:///Users/sanjanabhatia/Dropbox/spring%202016/creative%20computing/images_assignment/images/sleepinglady2.png")
 }
 
-function setup() {
+function setup(){
+  uploadButton = createFileInput(imageUploaded);
+  imageMode(LEFT);
 
-	//STEP 3
-	//add a file upload button with CreateFileInput(_____);
+	createCanvas(silk.width, silk.height);
+	background(silk)
 
-	//STEP 4:
-  //set up your canvas with createCanvas(__,__);
-
+	image(sleepinglady, 0, 0);
+  blend(sleepinglady, 0, 0, 33, 100, 67, 0, 33, 100, MULTIPLY);
+	//Could not get the blend to work for some reason - i will see you about this
 }
 
 function draw() {
-
-	//STEP 5:
-	//draw your images with image(imagevariable);
-
-	//STEP 7:
-	//You're also going to need an if statement here to check
-	//if the image the user uploaded exists to then draw it
-	//(see image upload example version 2)
-
+if (uploadedImage){
+  image(uploadedImage,mouseX,mouseY);
+	}
 }
 
-//STEP 6:
-//create a callback function (you can name it anything you'd like)
-//which will be called when the user uploads an image:
+function imageUploaded(file){
+	uploadedImage = loadImage(file.data, drawImg);
+}
 
-	//and inside it you will need to save the loaded image to a global variable
+function drawImg(){
+  image(uploadedImage,0,0);
+}
+
+function draw(){
+
+  stroke("Lavender");
+  line(mouseX, 0, mouseX,windowHeight);
+}
+
+//difficulty resizing & manipulating the uploadedImage
+function draw(){
+	if(mouseIsPressed){
+		image(uploadedImage, 100 - mouseX , 100 - mouseY, mouseX * 2, mouseY * 2);
+
+}
+}
