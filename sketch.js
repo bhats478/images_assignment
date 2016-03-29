@@ -1,6 +1,5 @@
 //PINK SLUMBER BY SANJANA BHATIA
 
-
 var silk;
 var uploadButton;
 var uploadedImage;
@@ -27,6 +26,11 @@ function draw() {
 if (uploadedImage){
   image(uploadedImage,mouseX,mouseY);
 	}
+	stroke("Lavender");
+	line(mouseX, 0, mouseX,windowHeight);
+
+
+
 }
 
 function imageUploaded(file){
@@ -35,18 +39,4 @@ function imageUploaded(file){
 
 function drawImg(){
   image(uploadedImage,0,0);
-}
-
-function draw(){
-
-  stroke("Lavender");
-  line(mouseX, 0, mouseX,windowHeight);
-}
-
-//difficulty resizing & manipulating the uploadedImage
-function draw(){
-	if(mouseIsPressed){
-		image(uploadedImage, 100 - mouseX , 100 - mouseY, mouseX * 2, mouseY * 2);
-
-}
 }
